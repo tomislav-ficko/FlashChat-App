@@ -1,39 +1,26 @@
 package com.londonappbrewery.flashchatnewfirebase;
 
-import android.app.AlertDialog;
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
-
-
-
 
 public class RegisterActivity extends AppCompatActivity {
 
-    // Constants
     public static final String CHAT_PREFS = "ChatPrefs";
     public static final String DISPLAY_NAME_KEY = "username";
 
-    // TODO: Add member variables here:
-    // UI references.
     private AutoCompleteTextView mEmailView;
     private AutoCompleteTextView mUsernameView;
     private EditText mPasswordView;
     private EditText mConfirmPasswordView;
 
     // Firebase instance variables
-
 
 
     @Override
@@ -60,10 +47,9 @@ public class RegisterActivity extends AppCompatActivity {
 
         // TODO: Get hold of an instance of FirebaseAuth
 
-
     }
 
-    // Executed when Sign Up button is pressed.
+    // Executed when Sign Up button is pressed
     public void signUp(View v) {
         attemptRegistration();
     }
@@ -126,8 +112,5 @@ public class RegisterActivity extends AppCompatActivity {
 
 
     // TODO: Create an alert dialog to show in case registration failed
-
-
-
 
 }
