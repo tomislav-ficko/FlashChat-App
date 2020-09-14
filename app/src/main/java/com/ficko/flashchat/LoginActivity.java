@@ -1,4 +1,4 @@
-package com.londonappbrewery.flashchatnewfirebase;
+package com.ficko.flashchat;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -46,7 +46,7 @@ public class LoginActivity extends AppCompatActivity {
 
     // Executed when Register button is pressed
     public void registerNewUser(View v) {
-        Intent intent = new Intent(this, com.londonappbrewery.flashchatnewfirebase.RegisterActivity.class);
+        Intent intent = new Intent(this, com.ficko.flashchat.RegisterActivity.class);
         finish();
         startActivity(intent);
     }
