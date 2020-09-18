@@ -87,7 +87,6 @@ public class MainChatActivity extends AppCompatActivity {
     public void onStop() {
         super.onStop();
 
-        // TODO: Remove the Firebase event listener on the adapter.
-
+        mAdapter.cleanup();
     }
 }
