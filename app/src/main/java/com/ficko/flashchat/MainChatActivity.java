@@ -22,6 +22,7 @@ public class MainChatActivity extends AppCompatActivity {
     private ImageButton mSendButton;
     private ListView mChatListView;
     private DatabaseReference mDatabaseReference;
+    private ChatListAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,7 +75,13 @@ public class MainChatActivity extends AppCompatActivity {
 
     }
 
-    // TODO: Override the onStart() lifecycle method. Setup the adapter here.
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        mAdapter = new ChatListAdapter(this, mDatabaseReference, mDisplayName);
+        mChatListView.setAdapter(mAdapter);
+    }
 
     @Override
     public void onStop() {
