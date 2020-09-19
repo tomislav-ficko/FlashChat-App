@@ -12,6 +12,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -29,7 +31,6 @@ public class MainChatActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_chat);
 
-        setupDisplayName();
         mDatabaseReference = FirebaseDatabase.getInstance().getReference();
 
         mInputText = findViewById(R.id.messageInput);
@@ -50,15 +51,13 @@ public class MainChatActivity extends AppCompatActivity {
                 sendMessage();
             }
         });
+
+        setupDisplayName();
     }
 
     private void setupDisplayName() {
-        SharedPreferences prefs = getSharedPreferences(RegisterActivity.CHAT_PREFS, MODE_PRIVATE);
-        mDisplayName = prefs.getString(RegisterActivity.DISPLAY_NAME_KEY, null);
-
-        if (mDisplayName == null) {
-            mDisplayName = "Anonymous";
-        }
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        mDisplayName = user.getDisplayName();
     }
 
     private void sendMessage() {
